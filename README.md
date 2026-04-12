@@ -1,8 +1,8 @@
 # syroom
 # Hi, I'm Syroom 👋
 
-> SQL과 Python을 활용한 데이터분석을 공부하고 있습니다.  
-> 매일 배운 내용을 기록하고, 데이터로 인사이트를 찾는 것을 즐깁니다.
+> SQL과 Python으로 데이터분석을 공부하고 있습니다.  
+> 배운 내용을 매일 기록하며, 데이터에서 의미를 찾는 걸 좋아합니다.
 
 ---
 
@@ -18,8 +18,8 @@
 
 ## 📂 Study Repository
 
-### 🐍 [DataAnalysis / DataScience](https://github.com/syroom/DataAnalysis)
-> SQL과 Python을 활용한 데이터분석 학습 기록
+### 🐍 [DataAnalysis / DataScience](https://github.com/sea20200506/DataAnalysis)
+> SQL과 Python으로 데이터를 분석하며 공부한 내용을 정리한 저장소입니다.
 
 | 날짜 | 주제 | 내용 |
 |------|------|------|
@@ -28,17 +28,19 @@
 ---
 
 ## 📈 GitHub Stats
+
 <p align="left">
-  <img src="https://streak-stats.demolab.com?user=syroom&hide_border=true" height="150"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=syroom&layout=compact&hide_border=true" height="150"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=sea20200506&show_icons=true&theme=default&hide_border=true&count_private=true&cache_seconds=1800" height="150"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sea20200506&layout=compact&hide_border=true&theme=default&cache_seconds=1800" height="150"/>
 </p>
+
 ---
 
 ## 🌱 현재 학습 중
 
 - `Pandas` — DataFrame 조작, 조건 필터링, 그룹 집계
 - `SQL` — SELECT, JOIN, 서브쿼리, 집계 함수
-- `데이터 시각화` — Matplotlib, Seaborn (예정)
+- `시각화` — Matplotlib, Seaborn (예정)
 
 ---
 
@@ -49,5 +51,5 @@
 ---
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=syroom&style=flat-square&color=blue" alt="profile views"/>
+  <img src="https://komarev.com/ghpvc/?username=sea20200506&style=flat-square&color=blue" alt="profile views"/>
 </p>
