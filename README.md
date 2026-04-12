@@ -46,7 +46,7 @@
 
 ## 📫 Contact
 
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:your@email.com)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:sea20200506@gmail.com)
 
 ---
 
