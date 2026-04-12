@@ -1,6 +1,8 @@
 # syroom
 # Hi, I'm Syroom 👋
 
+# Hi, I'm Syroom 👋
+
 > SQL과 Python으로 데이터분석을 공부하고 있습니다.  
 > 배운 내용을 매일 기록하며, 데이터에서 의미를 찾는 걸 좋아합니다.
 
