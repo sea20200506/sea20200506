@@ -1,5 +1,5 @@
 # syroom
-# Hi, I'm Syroom 👋
+# Hi, I'm Siyeon Kim 👋
 
 
 > SQL과 Python으로 데이터분석을 공부하고 있습니다.  
