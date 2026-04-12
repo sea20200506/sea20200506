@@ -35,6 +35,8 @@
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=sea20200506&theme=default" height="150"/>
 
 
+---
+
 ## 🌱 현재 학습 중
 
 - `Pandas` — DataFrame 조작, 조건 필터링, 그룹 집계
