@@ -31,10 +31,9 @@
 ## 📈 GitHub Stats
 
 <p align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=sea20200506&show_icons=true&theme=default&hide_border=true&count_private=true&cache_seconds=1800" height="150"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sea20200506&layout=compact&hide_border=true&theme=default&cache_seconds=1800" height="150"/>
+  <img src="https://streak-stats.demolab.com?user=sea20200506&hide_border=true&date_format=Y.n.j" height="150"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sea20200506&layout=compact&hide_border=true" height="150"/>
 </p>
-
 ---
 
 ## 🌱 현재 학습 중
