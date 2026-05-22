@@ -1,4 +1,4 @@
-# syroom
+
 # Hi, I'm Siyeon Kim 👋
 
 
