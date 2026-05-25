@@ -101,6 +101,3 @@ HTML은 **하이퍼텍스트 마크업 언어(Hyper Text Markup Language)**의 �
 </body>
 ```
 
-### 2-2-3. ul, li 태그
-
-리스트를 만드는 태그다.
