@@ -1,0 +1,275 @@
+# MySQL 기초 - 자료형과 SELECT/WHERE/논리 연산자/패턴 매칭
+
+**2026.06.27**  
+`MySQL` `SQL` `자료형` `SELECT` `WHERE` `NULL` `AND` `OR` `NOT` `LIKE` `패턴매칭`
+
+---
+
+## 1. 실습 테이블 (sample21)
+
+| no | name | birthday | address |
+|---|---|---|---|
+| 1 | 박준용 | 1976-10-18 | 대구광역시 수성구 |
+| 2 | 김재진 | NULL | 대구광역시 동구 |
+| 3 | 홍길동 | NULL | 서울특별시 마포구 |
+
+### 테이블 구조 (DESC sample21)
+
+| Field | Type | Null | Key | Default | Extra |
+|---|---|---|---|---|---|
+| no | int | YES | | NULL | |
+| name | varchar(20) | YES | | NULL | |
+| birthday | date | YES | | NULL | |
+| address | varchar(40) | YES | | NULL | |
+
+---
+
+## 2. 자료형
+
+열은 하나의 자료형만 가질 수 있으며, 자료형에 맞지 않는 데이터는 저장 불가.
+
+| 자료형 | 설명 | 정렬 방향 |
+|---|---|---|
+| `INT` | 정수값 저장, 소수점 불가 | 오른쪽 |
+| `CHAR(n)` | 고정 길이 문자열. 미달 시 공백으로 채움 | 왼쪽 |
+| `VARCHAR(n)` | 가변 길이 문자열. 데이터 크기에 맞게 저장공간 변동 | 왼쪽 |
+| `DATE` | 날짜값 저장 | 왼쪽 |
+| `TIME` | 시간값 저장 | 왼쪽 |
+
+> **NULL** = 아무것도 저장되어 있지 않은 상태 (0이나 공백과 다름)
+
+테이블 구조는 `DESC 테이블명`으로 확인.
+
+```sql
+DESC sample21;
+```
+
+---
+
+## 3. SELECT 구문
+
+```sql
+SELECT no, name FROM sample21;
+```
+
+| no | name |
+|---|---|
+| 1 | 박준용 |
+| 2 | 김재진 |
+| 3 | 홍길동 |
+
+- `SELECT *` : 전체 열 조회
+- `SELECT 열1, 열2` : 지정한 순서대로 출력, 중복 지정 가능
+
+---
+
+## 4. WHERE 구문
+
+```sql
+-- 구 순서: SELECT → FROM → WHERE
+SELECT * FROM sample21 WHERE no = 2;
+```
+
+| no | name | birthday | address |
+|---|---|---|---|
+| 2 | 김재진 | NULL | 대구광역시 동구 |
+
+- WHERE 구를 생략하면 전체 행 반환
+- 조건에 일치하는 행이 없으면 아무것도 반환하지 않음
+- 복수의 행이 반환될 수 있음
+
+### 리터럴 표기 규칙
+
+| 자료형 | 표기 방법 | 예시 |
+|---|---|---|
+| 수치형 | 그대로 표기 | `no = 2` |
+| 문자열형 | 싱글쿼트로 감쌈 | `name = '박준용'` |
+| 날짜시간형 | 싱글쿼트 + 하이픈/콜론 구분 | `birthday = '1976-10-18'` |
+
+### 주요 연산자
+
+| 연산자 | 설명 |
+|---|---|
+| `=` | 같다 |
+| `<>` | 다르다 |
+| `IS NULL` | NULL인 행 검색 |
+| `IS NOT NULL` | NULL이 아닌 행 검색 |
+
+> `=` 연산자로는 NULL 검색 불가 → 반드시 `IS NULL` 사용
+
+```sql
+-- NULL 검색
+SELECT * FROM sample21 WHERE birthday IS NULL;
+```
+
+| no | name | birthday | address |
+|---|---|---|---|
+| 2 | 김재진 | NULL | 대구광역시 동구 |
+| 3 | 홍길동 | NULL | 서울특별시 마포구 |
+
+```sql
+-- NULL이 아닌 행 검색
+SELECT * FROM sample21 WHERE birthday IS NOT NULL;
+```
+
+---
+
+## 5. 기타 규칙
+
+- 예약어와 DB 객체명은 대소문자 구별 없음
+- SQL 구의 순서는 고정: `SELECT` → `FROM` → `WHERE` (순서 바꾸면 에러)
+
+---
+
+## 6. AND 연산자
+
+모든 조건을 만족하는 행만 반환.
+
+```sql
+SELECT * FROM sample24 WHERE a<>0 AND b<>0;
+```
+
+| no | a | b | c |
+|---|---|---|---|
+| 4 | 2 | 2 | 0 |
+
+---
+
+## 7. OR 연산자
+
+하나 이상의 조건을 만족하는 행을 모두 반환.
+
+```sql
+SELECT * FROM sample24 WHERE a<>0 OR b<>0;
+```
+
+| no | a | b | c |
+|---|---|---|---|
+| 1 | 1 | 0 | 0 |
+| 2 | 0 | 1 | 0 |
+| 4 | 2 | 2 | 0 |
+| 5 | 0 | 2 | 2 |
+
+### 주의: OR 조건 잘못 쓰는 패턴
+
+```sql
+-- 잘못된 예: 상수 2는 항상 참이므로 전체 행 반환됨
+SELECT * FROM sample24 WHERE no = 1 OR 2;
+
+-- 올바른 예
+SELECT * FROM sample24 WHERE no = 1 OR no = 2;
+```
+
+---
+
+## 8. AND/OR 우선순위
+
+AND가 OR보다 우선순위가 높다.
+
+```sql
+-- 아래 두 쿼리는 동일하게 동작
+SELECT * FROM sample24 WHERE a=1 OR a=2 AND b=1 OR b=2;
+SELECT * FROM sample24 WHERE a=1 OR (a=2 AND b=1) OR b=2;
+```
+
+| no | a | b | c |
+|---|---|---|---|
+| 1 | 1 | 0 | 0 |
+| 4 | 2 | 2 | 0 |
+| 5 | 0 | 2 | 2 |
+
+의도한 조건을 정확히 지정하려면 괄호로 묶어야 함.
+
+```sql
+SELECT * FROM sample24 WHERE (a=1 OR a=2) AND (b=1 OR b=2);
+```
+
+| no | a | b | c |
+|---|---|---|---|
+| 4 | 2 | 2 | 0 |
+
+> OR 조건식은 괄호로 묶는 습관을 들일 것.
+
+---
+
+## 9. NOT 연산자
+
+조건식의 결과를 반전시킴.
+
+```sql
+SELECT * FROM sample24 WHERE NOT(a<>0 OR b<>0);
+```
+
+| no | a | b | c |
+|---|---|---|---|
+| 3 | 0 | 0 | 1 |
+
+> a열이 0이 아니거나 b열이 0이 아닌 행을 제외한 나머지를 반환.
+
+---
+
+## 10. LIKE - 패턴 매칭
+
+`=` 연산자는 완전 일치만 가능. `LIKE`는 부분 일치 검색 가능.
+
+```sql
+열명 LIKE '패턴'
+```
+
+### 와일드카드
+
+| 메타문자 | 의미 |
+|---|---|
+| `%` | 임의의 문자열 (빈 문자열 포함) |
+| `_` | 임의의 문자 1개 |
+
+> `*`는 LIKE에서 사용 불가.
+
+### 전방 일치
+
+```sql
+SELECT * FROM sample25 WHERE text LIKE 'SQL%';
+```
+
+| no | text |
+|---|---|
+| 1 | SQL은 RDBMS를 조작하기 위한 언어이다. |
+
+### 중간 일치
+
+```sql
+SELECT * FROM sample25 WHERE text LIKE '%SQL%';
+```
+
+| no | text |
+|---|---|
+| 1 | SQL은 RDBMS를 조작하기 위한 언어이다. |
+| 3 | LIKE는 SQL에서 사용할 수 있는 술어 중 하나이다. |
+
+| 패턴 | 명칭 |
+|---|---|
+| `'SQL%'` | 전방 일치 |
+| `'%SQL%'` | 중간 일치 |
+| `'%SQL'` | 후방 일치 |
+
+---
+
+## 11. 이스케이프
+
+`%`, `_` 자체를 검색하려면 `\`를 앞에 붙임.
+
+```sql
+-- %가 포함된 문자열 검색
+SELECT * FROM sample25 WHERE text LIKE '%\%%';
+```
+
+| no | text |
+|---|---|
+| 2 | LIKE에서는 메타문자 %와 _를 사용할 수 있다. |
+
+싱글쿼트(`'`) 자체를 검색하려면 `''`처럼 2개 연속으로 표기.
+
+```sql
+-- 'It's' → 'It''s'
+-- ' 하나만 → ''''
+```
