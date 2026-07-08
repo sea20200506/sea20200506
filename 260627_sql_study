@@ -1,11 +1,11 @@
-# MySQL 기초 - 자료형과 SELECT/WHERE 구문
+# MySQL 기초 - 자료형과 SELECT/WHERE/논리 연산자/패턴 매칭
 
- 
-`MySQL` `SQL` `자료형` `SELECT` `WHERE` `NULL`
+**2026.06.27**  
+`MySQL` `SQL` `자료형` `SELECT` `WHERE` `NULL` `AND` `OR` `NOT` `LIKE` `패턴매칭`
 
 ---
 
-## 0. 실습 테이블 (sample21)
+## 1. 실습 테이블 (sample21)
 
 | no | name | birthday | address |
 |---|---|---|---|
@@ -24,7 +24,7 @@
 
 ---
 
-## 1. 자료형
+## 2. 자료형
 
 열은 하나의 자료형만 가질 수 있으며, 자료형에 맞지 않는 데이터는 저장 불가.
 
@@ -40,17 +40,17 @@
 
 테이블 구조는 `DESC 테이블명`으로 확인.
 
-```````sql
+```sql
 DESC sample21;
-\```
+```
 
 ---
 
-## 2. SELECT 구문
+## 3. SELECT 구문
 
-``````sql
+```sql
 SELECT no, name FROM sample21;
-\```
+```
 
 | no | name |
 |---|---|
@@ -63,11 +63,12 @@ SELECT no, name FROM sample21;
 
 ---
 
-## 3. WHERE 구문
+## 4. WHERE 구문
 
-`````sql
+```sql
+-- 구 순서: SELECT → FROM → WHERE
 SELECT * FROM sample21 WHERE no = 2;
-\```
+```
 
 | no | name | birthday | address |
 |---|---|---|---|
@@ -96,10 +97,10 @@ SELECT * FROM sample21 WHERE no = 2;
 
 > `=` 연산자로는 NULL 검색 불가 → 반드시 `IS NULL` 사용
 
-````sql
+```sql
 -- NULL 검색
 SELECT * FROM sample21 WHERE birthday IS NULL;
-\```
+```
 
 | no | name | birthday | address |
 |---|---|---|---|
@@ -109,24 +110,18 @@ SELECT * FROM sample21 WHERE birthday IS NULL;
 ```sql
 -- NULL이 아닌 행 검색
 SELECT * FROM sample21 WHERE birthday IS NOT NULL;
-\```
+```
 
 ---
 
-## 4. 기타 규칙
+## 5. 기타 규칙
 
 - 예약어와 DB 객체명은 대소문자 구별 없음
 - SQL 구의 순서는 고정: `SELECT` → `FROM` → `WHERE` (순서 바꾸면 에러)
-```
-
-# MySQL 기초 - 논리 연산자와 패턴 매칭
-
-**2026.06.28**  
-`MySQL` `SQL` `AND` `OR` `NOT` `LIKE` `패턴매칭`
 
 ---
 
-## 1. AND 연산자
+## 6. AND 연산자
 
 모든 조건을 만족하는 행만 반환.
 
@@ -140,7 +135,7 @@ SELECT * FROM sample24 WHERE a<>0 AND b<>0;
 
 ---
 
-## 2. OR 연산자
+## 7. OR 연산자
 
 하나 이상의 조건을 만족하는 행을 모두 반환.
 
@@ -167,7 +162,7 @@ SELECT * FROM sample24 WHERE no = 1 OR no = 2;
 
 ---
 
-## 3. AND/OR 우선순위
+## 8. AND/OR 우선순위
 
 AND가 OR보다 우선순위가 높다.
 
@@ -197,7 +192,7 @@ SELECT * FROM sample24 WHERE (a=1 OR a=2) AND (b=1 OR b=2);
 
 ---
 
-## 4. NOT 연산자
+## 9. NOT 연산자
 
 조건식의 결과를 반전시킴.
 
@@ -213,7 +208,7 @@ SELECT * FROM sample24 WHERE NOT(a<>0 OR b<>0);
 
 ---
 
-## 5. LIKE - 패턴 매칭
+## 10. LIKE - 패턴 매칭
 
 `=` 연산자는 완전 일치만 가능. `LIKE`는 부분 일치 검색 가능.
 
@@ -259,7 +254,7 @@ SELECT * FROM sample25 WHERE text LIKE '%SQL%';
 
 ---
 
-## 6. 이스케이프
+## 11. 이스케이프
 
 `%`, `_` 자체를 검색하려면 `\`를 앞에 붙임.
 
