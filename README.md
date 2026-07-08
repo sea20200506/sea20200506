@@ -39,7 +39,7 @@
 
 ## 🗂 Projects
 
-### 📊 서울시 CCTV 현황 분석 (2026-05-23)
+### 📊 [서울시 CCTV 현황 분석](https://github.com/sea20200506/CCTV-Aanlysis) (2026-05-23)
 > 서울시 자치구별 CCTV 설치현황과 인구수 데이터를 분석한 프로젝트입니다.
 
 - 서울시 자치구 년도별 CCTV 설치현황 데이터 분석
@@ -65,7 +65,7 @@
 - `Java` — 기초 문법
 - `C++` — 기초 문법
 - `AI` — 머신러닝, 딥러닝 기초 관심 공부 중
-- `시각화` — Matplotlib, Seaborn
+- `시각화` — Matplotlib, Seaborn (예정)
 
 ---
 
