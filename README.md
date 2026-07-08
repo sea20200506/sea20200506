@@ -1,6 +1,6 @@
 # Hi, I'm Siyeon Kim 👋
 > SQL과 Python으로 데이터분석을 공부하고 있습니다.  
-> 배운 내용을 매일 기록하며, 데이터에서 의미를 찾는 걸 좋아합니다.
+> 배운 내용을 매일 기록하며, AI와 데이터에서 의미를 찾는 걸 좋아합니다.
 
 ---
 
@@ -16,7 +16,7 @@
 ---
 
 ## 📂 Study Repository
-### 🐍 [DataAnalysis / DataScience](https://github.com/sea20200506/DataAnalysis)
+### 🐍 [DataAnalysis / DataScience](https://github.com/sea20200506/sea20200506/tree/book/SQL-%EC%B2%AB%EA%B1%B8%EC%9D%8C)
 > SQL과 Python으로 데이터를 분석하며 공부한 내용을 정리한 저장소입니다.
 
 | 날짜 | 주제 | 내용 |
@@ -36,8 +36,9 @@
 ## 🌱 현재 학습 중
 - `Pandas` — DataFrame 조작, 조건 필터링, 그룹 집계
 - `SQL` — SELECT, JOIN, 서브쿼리, 집계 함수
-- `Java` — 기초 문법, 객체지향 프로그래밍
-- `C++` — 기초 문법, 포인터, 메모리 관리
+- `Java` — 기초 문법
+- `C++` — 기초 문법
+- `AI` — 머신러닝, 딥러닝 기초 관심 공부 중
 - `시각화` — Matplotlib, Seaborn (예정)
 
 ---
